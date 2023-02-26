@@ -1,0 +1,19 @@
+.showMoreButton {
+  width: 100%;
+  margin-bottom: 50px;
+  height: 50px;
+  background-color: #2196F3;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.2s linear;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.showMoreButton:hover {
+  cursor: pointer;
+  background-color: rgba(33, 149, 243, 0.7);
+}

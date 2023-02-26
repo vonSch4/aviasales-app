@@ -1,20 +1,34 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 import CardList from '../CardList';
 import FilterList from '../FilterList';
 import SortButtons from '../SortButtons';
+import ShowMoreButton from '../ShowMoreButton';
+import LoaderSpinner from '../LoaderSpinner';
+import NotifyMessage from '../NotifyMessage';
 import logo from '../../assets/img/Logo.svg';
 import { getSearchId } from '../../store/actions';
+import { sortingTickets, filterTickets } from '../../utils';
 
 import styles from './App.module.scss';
 
-function App() {
-  const dispatch = useDispatch();
+function App(props) {
+  const {
+    getSearchId: getSearchIdAction,
+    tickets,
+    sorting,
+    filters,
+    ticketsCount,
+    stopLoading,
+  } = props;
+
+  const sortedTickets = sortingTickets(sorting, tickets);
+  const filteredTickets = filterTickets(filters, sortedTickets);
 
   useEffect(() => {
-    dispatch(getSearchId());
-  }, [dispatch]);
+    getSearchIdAction();
+  }, [getSearchIdAction]);
 
   return (
     <>
@@ -25,11 +39,24 @@ function App() {
         <FilterList />
         <div className={styles.container}>
           <SortButtons />
-          <CardList />
+          {stopLoading || <LoaderSpinner />}
+          <CardList tickets={filteredTickets} ticketsCount={ticketsCount} />
+          {!!filteredTickets.length && <ShowMoreButton />}
+          {!filteredTickets.length && <NotifyMessage />}
         </div>
       </main>
     </>
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    tickets: state.tickets,
+    sorting: state.sorting,
+    filters: state.filters,
+    ticketsCount: state.ticketsCount,
+    stopLoading: state.stopLoading,
+  };
+}
+
+export default connect(mapStateToProps, { getSearchId })(App);

@@ -19,12 +19,16 @@
   font-family: 'Open Sans';
 }
 
+html {
+  padding: 0 calc(20px - (100vw - 100%)) 0 0;
+}
+
 body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f3f7fa;
+  background-color: #dfeefb;
 }
 
 ul {

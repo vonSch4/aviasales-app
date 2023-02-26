@@ -3,9 +3,7 @@ import setSorting from './setSorting';
 import getSearchId from './getSearchId';
 import getPackOfTickets from './getPackOfTickets';
 import setStopGettingTickets from './setStopGettingTickets';
-import sortCheapest from './sortCheapest';
-import sortFastest from './sortFastest';
-import sortOptimal from './sortOptimal';
+import addTicketsCount from './addTicketsCount';
 
 export {
   setFilter,
@@ -13,7 +11,5 @@ export {
   getSearchId,
   getPackOfTickets,
   setStopGettingTickets,
-  sortCheapest,
-  sortFastest,
-  sortOptimal,
+  addTicketsCount,
 };

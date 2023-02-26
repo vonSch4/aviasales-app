@@ -1,16 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import Card from '../Card';
 
 import styles from './CardList.module.scss';
 
-function CardList() {
-  const tickets = useSelector((state) => state.tickets.visibleTickets);
+function CardList(props) {
+  const { tickets, ticketsCount } = props;
 
-  const cards = tickets.map((el) => {
-    return <Card key={el.segments[0].date} ticket={el} />;
-  });
+  const cards = tickets
+    .map((ticket) => {
+      return <Card key={ticket.segments[0].date} ticket={ticket} />;
+    })
+    .slice(0, ticketsCount);
 
   return <ul className={styles.cardList}>{cards}</ul>;
 }

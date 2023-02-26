@@ -1,25 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import * as actions from '../../store/actions';
+import { setSorting } from '../../store/actions';
 import { SORTING } from '../../store/constants';
 
 import styles from './SortButtons.module.scss';
 
 function SortButtons(props) {
-  const {
-    sorting,
-    setSorting,
-    allTickets,
-    sortCheapest,
-    sortFastest,
-    sortOptimal,
-  } = props;
-
-  useEffect(() => {
-    sortCheapest();
-  }, [allTickets.length, sortCheapest]);
+  const { sorting, setSorting: setSortingAction } = props;
 
   return (
     <ul className={styles.sortButtons}>
@@ -32,8 +21,7 @@ function SortButtons(props) {
           )}
           type="button"
           onClick={() => {
-            setSorting(SORTING.CHEAPEST);
-            sortCheapest();
+            setSortingAction(SORTING.CHEAPEST);
           }}
         >
           САМЫЙ ДЕШЕВЫЙ
@@ -47,8 +35,7 @@ function SortButtons(props) {
           )}
           type="button"
           onClick={() => {
-            setSorting(SORTING.FASTEST);
-            sortFastest();
+            setSortingAction(SORTING.FASTEST);
           }}
         >
           САМЫЙ БЫСТРЫЙ
@@ -63,8 +50,7 @@ function SortButtons(props) {
           )}
           type="button"
           onClick={() => {
-            setSorting(SORTING.OPTIMAL);
-            sortOptimal();
+            setSortingAction(SORTING.OPTIMAL);
           }}
         >
           ОПТИМАЛЬНЫЙ
@@ -77,8 +63,7 @@ function SortButtons(props) {
 function mapStateToProps(state) {
   return {
     sorting: state.sorting,
-    allTickets: state.tickets.allTickets,
   };
 }
 
-export default connect(mapStateToProps, actions)(SortButtons);
+export default connect(mapStateToProps, { setSorting })(SortButtons);

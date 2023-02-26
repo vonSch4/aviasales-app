@@ -1,5 +1,5 @@
 .card {
-  height: 225px;
+  height: 232px;
   padding: 20px;
   margin-bottom: 20px;
   background-color: #fff;
@@ -18,4 +18,45 @@
   justify-content: space-between;
 }
 
-.cardBody {}
+.cardBody {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  justify-content: space-between;
+}
+
+.cardRow {
+  display: flex;
+}
+
+.cardCeil {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCeil:nth-child(n+2) {
+  margin-left: 70px
+}
+
+.ceilHeader {
+  color: #A0B0B9;
+}
+
+.test-enter {
+  opacity: 0;
+}
+
+.test-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.test-exit {
+  opacity: 1;
+}
+
+.test-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
