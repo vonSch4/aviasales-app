@@ -6,7 +6,7 @@ function LoaderSpinner() {
   return (
     <div className={styles.loaderContainer}>
       <span className={styles.loaderSpinner} />
-      <span>Ожидайте загрузки всех билетов...</span>
+      <span>Ожидайте загрузку всех билетов...</span>
     </div>
   );
 }

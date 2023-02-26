@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+  formatPrice,
   formatDateToTime,
   formatDurationToTime,
   formatTransferDescription,
@@ -24,7 +25,7 @@ function Card(props) {
   return (
     <li className={styles.card}>
       <div className={styles.cardHeader}>
-        <span className={styles.price}>{`${price} Р`}</span>
+        <span className={styles.price}>{formatPrice(price)}</span>
         <img src={`https://pics.avs.io/99/36/${carrier}.png`} alt="logo" />
       </div>
       <div className={styles.cardBody}>

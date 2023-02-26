@@ -24,7 +24,7 @@ function EndLoadingMessage() {
         alt="icon"
         className={styles.image}
       />
-      Все билеты загружены
+      Все билеты загружены!
     </div>
   );
 }
