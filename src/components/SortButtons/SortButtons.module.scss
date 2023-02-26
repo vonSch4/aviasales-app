@@ -1,0 +1,43 @@
+.sortButtons {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.button {
+  color: #4A4A4A;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  width: 165px;
+  border: 1px solid #DFE5EC;
+  height: 50px;
+  background-color: #fff;
+  transition: background-color 0.2s linear;
+}
+
+.button:hover {
+  background-color: rgba(128, 128, 128, 0.3);
+  cursor: pointer;
+}
+
+.selected {
+  color: #fff;
+  background-color: #2196F3;
+}
+
+.selected:hover {
+  background-color: rgba(33, 149, 243, 0.7);
+}
+
+.buttonFirst {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: none;
+}
+
+.buttonLast {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: none;
+}

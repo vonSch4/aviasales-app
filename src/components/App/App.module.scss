@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.header {
+  text-align: center;
+}
+
+.logo {
+  margin-top: 35px;
+  width: 75px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
