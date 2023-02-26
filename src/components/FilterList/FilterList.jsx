@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as actions from '../../store/actions';
+import { setFilter } from '../../store/actions';
 import { FILTERS } from '../../store/constants';
 
 import styles from './FilterList.module.scss';
 
-function FilterList({ filter, setFilter }) {
+function FilterList(props) {
+  const { filter, setFilter: setFilterActions } = props;
+
   return (
     <form className={styles.filterList}>
       <h1 className={styles.title}>КОЛИЧЕСТВО ПЕРЕСАДОК</h1>
@@ -14,7 +16,7 @@ function FilterList({ filter, setFilter }) {
         <input
           type="checkbox"
           onChange={(e) => {
-            setFilter(FILTERS.ALL, e.target.checked);
+            setFilterActions(FILTERS.ALL, e.target.checked);
           }}
           checked={filter.includes(FILTERS.ALL)}
         />
@@ -24,7 +26,7 @@ function FilterList({ filter, setFilter }) {
         <input
           type="checkbox"
           onChange={(e) => {
-            setFilter(FILTERS.WITHOUT_TRANSFERS, e.target.checked);
+            setFilterActions(FILTERS.WITHOUT_TRANSFERS, e.target.checked);
           }}
           checked={filter.includes(FILTERS.WITHOUT_TRANSFERS)}
         />
@@ -34,7 +36,7 @@ function FilterList({ filter, setFilter }) {
         <input
           type="checkbox"
           onChange={(e) => {
-            setFilter(FILTERS.ONE_TRANSFER, e.target.checked);
+            setFilterActions(FILTERS.ONE_TRANSFER, e.target.checked);
           }}
           checked={filter.includes(FILTERS.ONE_TRANSFER)}
         />
@@ -44,7 +46,7 @@ function FilterList({ filter, setFilter }) {
         <input
           type="checkbox"
           onChange={(e) => {
-            setFilter(FILTERS.TWO_TRANSFERS, e.target.checked);
+            setFilterActions(FILTERS.TWO_TRANSFERS, e.target.checked);
           }}
           checked={filter.includes(FILTERS.TWO_TRANSFERS)}
         />
@@ -54,7 +56,7 @@ function FilterList({ filter, setFilter }) {
         <input
           type="checkbox"
           onChange={(e) => {
-            setFilter(FILTERS.THREE_TRANSFERS, e.target.checked);
+            setFilterActions(FILTERS.THREE_TRANSFERS, e.target.checked);
           }}
           checked={filter.includes(FILTERS.THREE_TRANSFERS)}
         />
@@ -70,4 +72,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, actions)(FilterList);
+export default connect(mapStateToProps, { setFilter })(FilterList);

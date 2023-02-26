@@ -7,6 +7,7 @@ import SortButtons from '../SortButtons';
 import ShowMoreButton from '../ShowMoreButton';
 import LoaderSpinner from '../LoaderSpinner';
 import NotifyMessage from '../NotifyMessage';
+import EndLoadingMessage from '../EndLoadingMessage';
 import logo from '../../assets/img/Logo.svg';
 import { getSearchId } from '../../store/actions';
 import { sortingTickets, filterTickets } from '../../utils';
@@ -40,6 +41,7 @@ function App(props) {
         <div className={styles.container}>
           <SortButtons />
           {stopLoading || <LoaderSpinner />}
+          {!stopLoading || <EndLoadingMessage />}
           <CardList tickets={filteredTickets} ticketsCount={ticketsCount} />
           {!!filteredTickets.length && <ShowMoreButton />}
           {!filteredTickets.length && stopLoading && <NotifyMessage />}
