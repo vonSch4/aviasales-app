@@ -42,7 +42,7 @@ function App(props) {
           {stopLoading || <LoaderSpinner />}
           <CardList tickets={filteredTickets} ticketsCount={ticketsCount} />
           {!!filteredTickets.length && <ShowMoreButton />}
-          {!filteredTickets.length && <NotifyMessage />}
+          {!filteredTickets.length && stopLoading && <NotifyMessage />}
         </div>
       </main>
     </>
