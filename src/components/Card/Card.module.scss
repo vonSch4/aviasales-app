@@ -5,11 +5,17 @@
   background-color: #fff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  transition: box-shadow 0.15s linear;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 8px 4px rgb(0 0 0 / 10%);
 }
 
 .price {
   color: #2196F3;
   font-size: 25px;
+  line-height: 36px;
   font-weight: 600;
 }
 

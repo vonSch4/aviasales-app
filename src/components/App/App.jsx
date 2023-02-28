@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 
 import CardList from '../CardList';
@@ -24,8 +24,13 @@ function App(props) {
     stopLoading,
   } = props;
 
-  const sortedTickets = sortingTickets(sorting, tickets);
-  const filteredTickets = filterTickets(filters, sortedTickets);
+  const filteredTickets = useMemo(() => {
+    return filterTickets(filters, tickets);
+  }, [filters, tickets]);
+
+  const sortedTickets = useMemo(() => {
+    return sortingTickets(sorting, filteredTickets);
+  }, [sorting, filteredTickets]);
 
   useEffect(() => {
     getSearchIdAction();
@@ -42,9 +47,9 @@ function App(props) {
           <SortButtons />
           {stopLoading || <LoaderSpinner />}
           {!stopLoading || <EndLoadingMessage />}
-          <CardList tickets={filteredTickets} ticketsCount={ticketsCount} />
-          {!!filteredTickets.length && <ShowMoreButton />}
-          {!filteredTickets.length && stopLoading && <NotifyMessage />}
+          <CardList tickets={sortedTickets} ticketsCount={ticketsCount} />
+          {!!sortedTickets.length && <ShowMoreButton />}
+          {!sortedTickets.length && stopLoading && <NotifyMessage />}
         </div>
       </main>
     </>
