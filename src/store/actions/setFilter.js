@@ -1,7 +1,7 @@
 import { SET_FILTER, RESET_TICKETS_COUNT } from '../types';
 
 export default function setFilter(filter, enabled) {
-  return function wrapper(dispatch, getState) {
+  return (dispatch, getState) => {
     const { ticketsCount } = getState();
 
     if (ticketsCount > 5) {

@@ -1,7 +1,7 @@
 import { SET_SORTING, RESET_TICKETS_COUNT } from '../types';
 
 export default function setSorting(sorting) {
-  return function wrapper(dispatch, getState) {
+  return (dispatch, getState) => {
     const { ticketsCount } = getState();
 
     if (ticketsCount > 5) {

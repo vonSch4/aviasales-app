@@ -1,15 +1,6 @@
-import setFilter from './setFilter';
-import setSorting from './setSorting';
-import getSearchId from './getSearchId';
-import getPackOfTickets from './getPackOfTickets';
-import setStopGettingTickets from './setStopGettingTickets';
-import addTicketsCount from './addTicketsCount';
-
-export {
-  setFilter,
-  setSorting,
-  getSearchId,
-  getPackOfTickets,
-  setStopGettingTickets,
-  addTicketsCount,
-};
+export { default as setFilter } from './setFilter';
+export { default as setSorting } from './setSorting';
+export { default as getSearchId } from './getSearchId';
+export { default as getPackOfTickets } from './getPackOfTickets';
+export { default as setStopGettingTickets } from './setStopGettingTickets';
+export { default as addTicketsCount } from './addTicketsCount';
